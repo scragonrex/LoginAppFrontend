@@ -43,7 +43,6 @@ const Login = ({setLoginUser})=>{
   }
   return (
     <Box backgroundColor='white'  borderRadius={3} sx={{width:'20rem', height:'28rem',p:3,boxShadow:'0px 0px 4px 0px #dee2e8;'}}>
-      {console.log('user',user)}
       <Typography variant='h4' component='div' textAlign='center'>Login</Typography>
       <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
         <TextField name='email' value={user.email}  onChange={handleChange} id="outlined-basic" label="Email" variant="outlined" sx={{margin:'1rem 3rem'}}/>

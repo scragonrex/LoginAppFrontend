@@ -17,7 +17,7 @@ return(
         <Switch>
             <Route exact path="/">
                 {
-                    user && user._id ? <Homepage/> : <Login setLoginUser={setLoginUser}/>
+                    user && user._id ? <Homepage userData={user}/> : <Login setLoginUser={setLoginUser}/>
                 }
             </Route>
         <Route exact path="/login"><Login setLoginUser={setLoginUser}/></Route>
