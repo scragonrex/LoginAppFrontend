@@ -31,7 +31,7 @@ const Login = ({setLoginUser})=>{
 
   const handleClick =()=>{
     history.push("/register");
-    window.location.reload(false);
+    // window.location.reload(false);
   }
   
   const login=()=>{

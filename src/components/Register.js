@@ -45,15 +45,15 @@ const Register = ()=>{
 
   const handleClick =()=>{
     history.push("/login");
-    window.location.reload(false);
+    // window.location.reload(false);
   }
   
   return (
     <Box backgroundColor='white'  borderRadius={3} sx={{width:'20rem', height:'33rem',p:3,boxShadow:'0px 0px 4px 0px #dee2e8;'}}>
       <Typography variant='h4' component='div' textAlign='center'>Register</Typography>
       <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
-        <TextField name='name' value={user.name}  onChange={handleChange} id="outlined-basic" label="Username" variant="outlined" sx={{margin:'1rem 1.5rem'}}/>
-        <TextField name='email' value={user.email}  onChange={handleChange} id="outlined-basic" label="Email" variant="outlined" sx={{margin:'1rem 1.5rem'}}/>
+        <TextField name='name' value={user.name}  onChange={handleChange} id="name" label="Username" variant="outlined" sx={{margin:'1rem 1.5rem'}}/>
+        <TextField name='email' value={user.email}  onChange={handleChange} id="email" label="Email" variant="outlined" sx={{margin:'1rem 1.5rem'}}/>
         <FormControl sx={{margin:'1rem 1.5rem'}} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
           <OutlinedInput
