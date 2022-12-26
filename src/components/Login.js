@@ -61,7 +61,7 @@ const Login = ({ setLoginUser }) => {
   return (
     <Box width='100vw' height='100vh' m={0} p={0} sx={{ display: 'flex', flexDirection: 'column' }}>
       {open && <Box m={0} sx={{ width: '100%' }}> <LinearProgress sx={{ height: '5px' }} /></Box>}
-      <Snackbar open={userNotReg} autoHideDuration={2000} anchorOrigin={{ vertical: 'top', horizontal:   'center' }}    onClose={handleClose}>
+      <Snackbar open={userNotReg} autoHideDuration={3000} anchorOrigin={{ vertical: 'top', horizontal:   'center' }}    onClose={handleClose}>
         <Alert onClose={handleClose} severity="error">User not registered!</Alert>
       </Snackbar>
       <Box backgroundColor='white' borderRadius={3} sx={{ width: '20rem', height: '28rem', p: 3, boxShadow: '0px 0px 6px 0px #dee2e8', margin: 'auto' }}>

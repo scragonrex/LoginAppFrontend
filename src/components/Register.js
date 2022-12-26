@@ -49,7 +49,6 @@ const Register = ()=>{
             if(mes === "User already registered. Please login now")
             setUserAlready(true);
             setOpen(false);
-            handleClick();
           })
       }
       else
@@ -91,13 +90,13 @@ const Register = ()=>{
     {open &&  <Box m={0} sx={{ width: '100%' }}>
     <LinearProgress sx={{height:'5px'}} />
   </Box>}
-  <Snackbar open={userAlready} autoHideDuration={2000} anchorOrigin={{ vertical: 'top', horizontal:            'center' }}  onClose={handleClose1}>
+  <Snackbar open={userAlready} autoHideDuration={3000} anchorOrigin={{ vertical: 'top', horizontal:            'center' }}  onClose={handleClose1}>
         <Alert onClose={handleClose1} severity="info">User already registered!. Please Login</Alert>
   </Snackbar>
-  <Snackbar open={loginSuc} autoHideDuration={2000} anchorOrigin={{ vertical: 'top', horizontal:            'center' }}  onClose={handleClose2}>
+  <Snackbar open={loginSuc} autoHideDuration={3000} anchorOrigin={{ vertical: 'top', horizontal:            'center' }}  onClose={handleClose2}>
         <Alert onClose={handleClose2} severity="success">Registered sucessfully!</Alert>
   </Snackbar>
-  <Snackbar open={invalidIn} autoHideDuration={2000} anchorOrigin={{ vertical: 'top', horizontal:            'center' }}  onClose={handleClose3}>
+  <Snackbar open={invalidIn} autoHideDuration={3000} anchorOrigin={{ vertical: 'top', horizontal:            'center' }}  onClose={handleClose3}>
         <Alert onClose={handleClose3} severity="error">Invalid input!</Alert>
   </Snackbar>
     <Box backgroundColor='white'  borderRadius={3} sx={{width:'20rem', height:'33rem',p:3, boxShadow:'0px 0px 4px 0px #dee2e8', margin:'auto'}}>
