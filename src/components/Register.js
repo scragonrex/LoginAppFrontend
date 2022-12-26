@@ -1,11 +1,12 @@
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { Button, FormControl, IconButton, Input, InputAdornment, InputLabel, OutlinedInput, TextField, Typography } from '@mui/material'
+import { Button, FormControl, IconButton, Input, InputAdornment, InputLabel, LinearProgress, OutlinedInput, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 
 const Register = ()=>{
+  const [open, setOpen] = useState(false);
   const history = useHistory();
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -30,16 +31,19 @@ const Register = ()=>{
     )
   }
   const register=()=>{
+    setOpen(true);
     const {name, email, password, confirmPassword}=user;
     if(name && email && password && (password === confirmPassword))
     {
       axios.post("https://loginappbackend.onrender.com/register", user)
       .then(res=>{alert(res.data.message)
+            setOpen(false)
             handleClick()})
      
     }
     else{
       alert("Invalid input");
+      setOpen(false);
     }
   }
 
@@ -49,7 +53,11 @@ const Register = ()=>{
   }
   
   return (
-    <Box backgroundColor='white'  borderRadius={3} sx={{width:'20rem', height:'33rem',p:3,boxShadow:'0px 0px 4px 0px #dee2e8;'}}>
+    <Box width='100vw' height='100vh' m={0} p={0} sx={{display:'flex', flexDirection:'column'}}>
+    { open&&<Box m={0} sx={{ width: '100%' }}>
+    <LinearProgress sx={{height:'5px'}} />
+  </Box>}
+    <Box backgroundColor='white'  borderRadius={3} sx={{width:'20rem', height:'33rem',p:3, boxShadow:'0px 0px 4px 0px #dee2e8', margin:'auto'}}>
       <Typography variant='h4' component='div' textAlign='center'>Register</Typography>
       <Box sx={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
         <TextField name='name' value={user.name}  onChange={handleChange} id="name" label="Username" variant="outlined" sx={{margin:'1rem 1.5rem'}}/>
@@ -69,7 +77,7 @@ const Register = ()=>{
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                  {showPassword ? <Visibility />: <VisibilityOff /> }
                 </IconButton>
               </InputAdornment>
             }
@@ -90,7 +98,7 @@ const Register = ()=>{
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
                 >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </InputAdornment>
             }
@@ -99,6 +107,7 @@ const Register = ()=>{
         <Button variant="contained" sx={{margin:'0.5rem 5.5rem'}} onClick={register}>Register</Button>
         <Typography variant='h6' textAlign='center'>or</Typography>
         <Button variant="contained" sx={{margin:'0.5rem 5.5rem'}} onClick={handleClick}>Login</Button>
+    </Box>
     </Box>
     </Box>
   )
